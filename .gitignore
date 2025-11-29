@@ -23,9 +23,6 @@ build/
 
 # Project specific additions
 .git/
-.specify/scripts/bash/
-history/prompts/
+
 pytest.ini
 requirements.txt
-specs/
-book_source/
