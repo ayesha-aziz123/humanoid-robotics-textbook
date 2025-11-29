@@ -1,4 +1,35 @@
 /**
+ * Any CSS you add here will be applied to all pages of your Docusaurus site.
+ */
+
+:root {
+  --ifm-color-primary: #1565C0;
+  --ifm-color-primary-dark: #1255a0;
+  --ifm-color-primary-darker: #104e96;
+  --ifm-color-primary-darkest: #0d417c;
+  --ifm-color-primary-light: #1875e0;
+  --ifm-color-primary-lighter: #1b7ef8;
+  --ifm-color-primary-lightest: #3f99ff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #2196F3;
+  --ifm-color-primary-dark: #1f8add;
+  --ifm-color-primary-darker: #1d82d1;
+  --ifm-color-primary-darkest: #196fad;
+  --ifm-color-primary-light: #42a5f5;
+  --ifm-color-primary-lighter: #58b0f7;
+  --ifm-color-primary-lightest: #80c4fa;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
@@ -28,3 +59,275 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+
+/* Card animations */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button animations */
+.button {
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+/* Fade-in animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* src/css/custom.css */
+
+/* Learning Cards */
+.learning-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  height: 100%;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.learning-card:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.learning-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.learning-card__title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.learning-card__content {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Sensor Grid */
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.sensor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sensor-item:hover {
+  background: var(--ifm-color-emphasis-200);
+  transform: translateY(-1px);
+}
+
+.sensor-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.sensor-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-primary);
+}
+
+.sensor-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Technology Stack */
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tech-badge {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  min-width: 60px;
+  text-align: center;
+}
+
+.tech-desc {
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+/* Process Flow */
+.process-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.step-number {
+  background: var(--ifm-color-primary);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content h5 {
+  margin: 0 0 0.25rem 0;
+  color: var(--ifm-color-primary);
+}
+
+.step-content p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Feature Sections */
+.feature-section {
+  margin: 2rem 0;
+}
+
+.feature-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.feature-header h2 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Technology Cards */
+.technology-card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.technology-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card__header {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 1rem;
+}
+
+.tech-card__header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tech-card__body {
+  padding: 1rem;
+}
+
+.tech-card__body ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.tech-card__body li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Exercise Cards */
+.exercise-card {
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem 0;
+  transition: all 0.3s ease;
+}
+
+.exercise-card:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.exercise-header h3 {
+  margin: 0;
+  color: var(--ifm-color-primary);
+}
+
+.difficulty-badge {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.exercise-body {
+  padding: 1.5rem;
+}
+
+/* Add more styles as needed... */
+
+
+

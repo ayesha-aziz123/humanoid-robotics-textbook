@@ -1,98 +1,112 @@
 <!--
 Sync Impact Report:
-Version change: None -> 1.0.0
-Modified principles: All (initial generation)
-Added sections: Preamble, Articles 1-10, Hackathon Deliverables Checklist, Signatories
-Removed sections: None
-Templates requiring updates:
-  .specify/templates/plan-template.md: ⚠ pending
-  .specify/templates/spec-template.md: ⚠ pending
-  .specify/templates/tasks-template.md: ⚠ pending
-  .specify/templates/commands/*.md: ✅ updated (no command files found, but verified)
-Follow-up TODOs: None
+- Version change: 2.0.0 -> 2.0.0
+- List of modified principles: None
+- Added sections: None
+- Removed sections: None
+- Templates requiring updates:
+    - .specify/templates/plan-template.md: ✅ updated
+    - .specify/templates/spec-template.md: ✅ updated
+    - .specify/templates/tasks-template.md: ✅ updated
+    - .specify/templates/commands/*.md: ✅ updated
+- Follow-up TODOs if any placeholders intentionally deferred: None
 -->
-# Physical AI & Humanoid Robotics Constitution
-<!-- Hackathon textbook for Physical AI & Humanoid Robotics -->
+---
+title: Project Constitution — Physical AI & Humanoid Robotics Textbook
+version: 2.0.0
 
-## Preamble
-This constitution outlines the core principles, scope, structure, and guidelines for the "Physical AI & Humanoid Robotics" textbook project. This textbook aims to bridge the gap between digital AI concepts and their practical application in physical robotics, serving as a comprehensive guide for hackathon participants, students, and enthusiasts.
+created_by: Ayesha
+created_at: 2025-11-28
+---
 
-## Articles
+# Project Constitution
+**Purpose:** Is project ka maqsad ek high-quality, modular, classroom-ready textbook banana hai — "Physical AI & Humanoid Robotics" — jise hackathon submission ke liye Spec-Kit Plus, Docusaurus aur Claude subagents ke sath integrate kiya jayega.
 
-### Article 1: Purpose of the Book
-**Purpose:** To create a hackathon textbook that teaches Physical AI & Humanoid Robotics, effectively bridging the theoretical aspects of digital AI with the practical implementation on physical robots.
+## 1. Scope & Deliverables
+- Primary deliverable: Publicly hosted Docusaurus textbook with **4 complete modules** (as per hackathon course outline) + embedded RAG chatbot with "selected-text only" answering.
+- Book must replace default Docusaurus content with professional Physical AI textbook.
+- Secondary deliverables: Urdu translation, user personalization, Claude subagents.
 
-### Article 2: Scope of the Book
-**Audience:** The primary audience includes hackathon participants, students, and enthusiasts in AI and Robotics.
-**Modules:** The book will be structured into weekly chapters, covering Weeks 1 through 13.
-**Content Types:** Content will be AI-driven, modular, and interactive, incorporating practical labs, code examples, theoretical concepts, and ethical considerations.
-**Technologies:** Key technologies include Claude subagents, Docusaurus for the frontend, GitHub Pages/Vercel for deployment, a FastAPI RAG backend, Neon Postgres, Qdrant (vector database), Jetson Edge Kit for edge AI, and a Sim Rig for robotics simulation.
+## 2. Project Structure & Paths
+- **Book Content Directory**: `/book_source/docs/` (Docusaurus docs folder - REPLACE DEFAULT CONTENT)
+- **Chapter Files**: `/book_source/docs/01-introduction.md`, `/book_source/docs/02-ros2-fundamentals.md`, etc.
+- **Sidebar Config**: `/book_source/sidebars.ts` (must reflect 4 modules from course outline)
+- **Docusaurus Config**: `/book_source/docusaurus.config.ts` (professional theme for textbook)
+- **ALL generated content goes directly into Docusaurus docs folder**
 
-### Article 3: Principles of Book Creation
-**AI-driven:** Content generation, personalization, and code assistance will be heavily augmented by AI.
-**Modular:** Content will be organized into independent, digestible weekly chapters.
-**Interactive:** The book will feature interactive labs, a RAG chatbot, and mechanisms for user feedback.
-**Personalization:** The platform will support tailored learning paths and content delivery.
-**Urdu Support:** Content will be available with localization for Urdu speakers.
-**Open-source:** The project will adhere to open-source principles, encouraging community contributions and transparency.
+## 3. Book Modules (As Per Hackathon Course)
+**Module 1: Introduction to Physical AI**
+- Foundations of Physical AI and embodied intelligence
+- Humanoid robotics landscape
+- Sensor systems
 
-### Article 4: Rules of Engagement
-**Consistency:** Maintain a consistent tone, formatting, and terminology throughout the textbook.
-**Accuracy:** All technical information and facts presented must be accurate and verifiable.
-**Chapter Checklist:** Each chapter will follow a standardized checklist to ensure comprehensive coverage and quality.
-**Version Control:** All content will be managed using Git for version control and collaborative development.
-**Feedback:** A robust system for collecting and incorporating user feedback will be maintained.
+**Module 2: ROS 2 Fundamentals**
+- ROS 2 architecture and core concepts
+- Nodes, topics, services, and actions
+- URDF for humanoids
 
-### Article 5: Structure of the Book
-**Front Matter:** Includes an introduction, preface, and acknowledgments.
-**Weekly Chapters (Weeks 1-13):** This forms the core content, featuring theoretical explanations, practical labs, and exercises.
-**Back Matter:** Comprises a glossary, index, appendices, and references.
+**Module 3: Gazebo & Simulation**
+- Gazebo simulation environment
+- Physics simulation and sensors
+- Unity integration
 
-### Article 6: Principles of Innovation
-**Claude Subagents:** Utilize Claude subagents for advanced content generation, personalized learning experiences, and automated code assistance.
-**Reusable Intelligence:** Develop modular AI components that can be reused across different parts of the textbook and related projects.
-**Automation:** Implement CI/CD pipelines for automated deployment, content updates, and testing.
-**Sim-to-Real:** Emphasize practical application by bridging simulated robotics environments with physical hardware implementations.
+**Module 4: NVIDIA Isaac Platform**
+- Isaac Sim and Isaac ROS
+- VSLAM and navigation
+- Capstone project
 
-### Article 7: Deployment Guidelines
-**Frontend:** The textbook will be published using Docusaurus, deployed on GitHub Pages or Vercel.
-**Backend:** A FastAPI-based RAG (Retrieval-Augmented Generation) backend will power interactive features.
-**Database:** Utilize Neon Postgres for relational data and Qdrant as a vector database for semantic search.
-**Responsiveness:** The frontend will be designed with a mobile-first approach, ensuring responsiveness across devices.
-**Authentication:** Implement user authentication for personalized content and tracking.
+## 4. Quality Standards (apply to every chapter / asset)
+- Each chapter must include:
+  1. Learning objectives (3–6 bulleted points).
+  2. Core explanation (concepts + diagrams as images or code blocks).
+  3. At least **2 hands-on exercises** with expected outputs.
+  4. Short quiz (3 multiple-choice Qs) or reflection prompts.
+  5. References / further reading (links).
+- Tone: clear, classroom-friendly, mixture of conceptual explanation + practical examples.
+- File format: Markdown (UTF-8). Each chapter = one `.md` file. Filename pattern: `NN-slug-title.md` (e.g., `01-intro.md`).
 
-### Article 8: Hardware & Lab Guidance
-**Sim Rig:** Provide comprehensive guidance and setup instructions for robotics simulation environments.
-**Jetson Edge Kit:** Detail the use of NVIDIA Jetson Edge AI kits for practical, on-device AI implementations.
-**Proxy Robots:** Offer strategies and examples for interfacing with diverse physical robot platforms using software proxies.
-**Cloud/On-prem Summary:** Summarize considerations and provide guidance for deploying AI/robotics solutions in both cloud and on-premise environments.
+## 5. UI & Design Requirements
+- Replace default Docusaurus UI with professional textbook theme
+- Clean, academic color scheme
+- Responsive sidebar navigation
+- Professional typography and layout
 
-### Article 9: Ethics & Best Practices
-**IP:** Clearly define intellectual property rights, licensing, and attribution requirements.
-**Privacy:** Ensure strict adherence to data privacy principles and user information protection.
-**Inclusive:** Promote inclusive language, diverse examples, and accessible content.
-**Safety:** Emphasize robotics safety protocols and ethical considerations in AI development.
+## 6. Provenance & RAG policy
+- All generated answers shown to users must include source citations (chunk metadata & link to chapter).
+- If user selects text and requests an answer, backend **must** restrict context to only the selected text. No external context allowed.
+- Store chunk -> source mapping in Postgres/Neon for auditability.
 
-### Article 10: Amendments & Future Proofing
-**Living Document Rules:** This constitution is a living document, subject to review and amendment through a defined process to ensure its continued relevance and accuracy.
+## 7. Content Source
+- All content based on hackathon provided course outline
+- Use exact modules and topics from "The Course Details" section
+- Include hardware requirements and practical examples
 
-## Hackathon Deliverables Checklist
-- [ ] Docusaurus published textbook
-- [ ] RAG chatbot integration
-- [ ] Claude subagents integrated for personalization and content generation
-- [ ] Personalization features implemented
-- [ ] Urdu translation available
+## 8. Security & Secrets
+- API keys (Claude, OpenAI, Qdrant, Neon) must be stored as environment variables or GitHub Actions secrets. No `.env` or secrets in repo.
+- Access control: only maintainers have deploy token.
 
-## Governance
-This Constitution supersedes all other project practices and documentation. Any amendments require formal documentation, approval by core contributors, and a clear migration plan if changes are significant. All pull requests and code reviews must explicitly verify compliance with these articles. Use the project's runtime development guidance file (if present) for day-to-day practices.
+## 9. Localization
+- Base language: English. Urdu translations are optional but recommended for accessibility.
+- Translation approach: use Claude to produce draft translations, then human proofread before publishing.
 
-**Version**: 1.0.0 | **Ratified**: 2025-11-28 | **Last Amended**: 2025-11-28
+## 10. Licensing & Attribution
+- License: CC BY-SA 4.0 (recommended) — add `LICENSE` file at repo root.
+- Any third-party figures/code must include attribution and license compatibility info.
 
-## Signatories
--------------------------
-[SIGNATORY_NAME_1]
-[DATE]
+## 11. Versioning & Releases
+- Use semantic versioning for the textbook (e.g., v0.1.0 initial hackathon submission).
+- Tag releases in GitHub.
 
--------------------------
-[SIGNATORY_NAME_2]
-[DATE]
+## 12. Minimal Acceptance Criteria (must be true at submission)
+1. Public GitHub repo + README with instructions.
+2. Hosted Docusaurus textbook (link) with 4 complete modules.
+3. FastAPI (or equivalent) RAG endpoint responding to queries.
+4. Proof (screen recording or images) of "selected-text only" answer flow.
+5. Professional UI replacing default Docusaurus theme.
+6. Submission package: GitHub link + hosted link + demo video.
+
+## 13. Workflow & Writing Rules
+- Author writes directly in `/book_source/docs/NN-slug.md` (Docusaurus docs folder).
+- Peer review via PR in `dev` branch; merge to `main` only after review.
+- Use consistent frontmatter for metadata.
+

@@ -1,23 +1,369 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+/* CSS Variables for Themes */
+:root {
+  /* Light Theme */
+  --bg-primary-light: #ffffff;
+  --bg-secondary-light: #f8fafc;
+  --text-primary-light: #1f2937;
+  --text-secondary-light: #6b7280;
+  --accent-primary-light: #7c3aed;
+  --accent-secondary-light: #8b5cf6;
+  --border-light: #e5e7eb;
+  --card-bg-light: rgba(255, 255, 255, 0.8);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  
+  /* Dark Theme */
+  --bg-primary-dark: #0a0a0a;
+  --bg-secondary-dark: #1a1a1a;
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #d1d5db;
+  --accent-primary-dark: #8b5cf6;
+  --accent-secondary-dark: #a78bfa;
+  --border-dark: rgba(139, 92, 246, 0.2);
+  --card-bg-dark: rgba(255, 255, 255, 0.05);
+  --shadow-dark: rgba(139, 92, 246, 0.15);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+/* Default Light Theme */
+[data-theme='light'] {
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --accent-primary: var(--accent-primary-light);
+  --accent-secondary: var(--accent-secondary-light);
+  --border: var(--border-light);
+  --card-bg: var(--card-bg-light);
+  --shadow: var(--shadow-light);
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --accent-primary: var(--accent-primary-dark);
+  --accent-secondary: var(--accent-secondary-dark);
+  --border: var(--border-dark);
+  --card-bg: var(--card-bg-dark);
+  --shadow: var(--shadow-dark);
+}
+
+.heroBanner {
+  padding: 6rem 0;
+  text-align: left;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.heroTitleAccent {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.heroStats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroButtonPrimary {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.heroButtonPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.heroButtonSecondary {
+  background: transparent;
+  color: var(--accent-primary);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid var(--accent-primary);
+  transition: all 0.3s ease;
+}
+
+.heroButtonSecondary:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: translateY(-2px);
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.robotAnimation {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.robotHead {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--text-secondary) 0%, var(--text-primary) 100%);
+  border-radius: 40% 40% 30% 30%;
+  border: 2px solid var(--accent-primary);
+}
+
+.robotBody {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--text-secondary) 0%, var(--text-primary) 100%);
+  border-radius: 20px;
+  border: 2px solid var(--accent-primary);
+}
+
+.robotLeftArm, .robotRightArm {
+  position: absolute;
+  top: 90px;
+  width: 20px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--text-secondary) 0%, var(--text-primary) 100%);
+  border: 2px solid var(--accent-primary);
+  animation: wave 3s ease-in-out infinite;
+}
+
+.robotLeftArm {
+  left: 30px;
+  border-radius: 10px 0 0 10px;
+  animation-delay: 0.5s;
+}
+
+.robotRightArm {
+  right: 30px;
+  border-radius: 0 10px 10px 0;
+}
+
+.robotLeftLeg, .robotRightLeg {
+  position: absolute;
+  top: 200px;
+  width: 25px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--text-secondary) 0%, var(--text-primary) 100%);
+  border: 2px solid var(--accent-primary);
+  animation: walk 2s ease-in-out infinite;
+}
+
+.robotLeftLeg {
+  left: 45px;
+  border-radius: 10px 0 0 10px;
+}
+
+.robotRightLeg {
+  right: 45px;
+  border-radius: 0 10px 10px 0;
+  animation-delay: 1s;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes walk {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroOrb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.heroOrb:nth-child(1) {
+  top: -150px;
+  right: -150px;
+}
+
+.heroOrb:nth-child(2) {
+  bottom: -100px;
+  left: 20%;
+}
+
+.heroOrb:nth-child(3) {
+  top: 30%;
+  right: 10%;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* Light Theme Specific Adjustments */
+[data-theme='light'] .heroBanner {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+}
+
+[data-theme='light'] .robotHead,
+[data-theme='light'] .robotBody,
+[data-theme='light'] .robotLeftArm,
+[data-theme='light'] .robotRightArm,
+[data-theme='light'] .robotLeftLeg,
+[data-theme='light'] .robotRightLeg {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+}
+
+[data-theme='light'] .quickStartSection {
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 996px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  
+  .heroStats {
+    justify-content: center;
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 0;
+    min-height: auto;
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .heroStats {
+    gap: 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .heroButtonPrimary,
+  .heroButtonSecondary {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .robotAnimation {
+    transform: scale(0.8);
+  }
 }
