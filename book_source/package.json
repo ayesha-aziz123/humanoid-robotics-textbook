@@ -43,5 +43,13 @@
   },
   "engines": {
     "node": ">=20.0"
-  }
+  },
+  "description": "This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

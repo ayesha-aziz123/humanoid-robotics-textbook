@@ -5,6 +5,17 @@ on:
     branches:
       - main # IMPORTANT: Replace 'main' with your default branch name (e.g., 'master')
 
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -18,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # You can adjust this Node.js version if needed
+          node-version: "18" # You can adjust this Node.js version if needed
 
       - name: Install dependencies
         run: |
@@ -35,5 +46,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./book_source/build
-          publish_branch: gh-pages
+          publish_branch: gh-pages-new
           force_orphan: true # This will overwrite the gh-pages branch entirely with the build output

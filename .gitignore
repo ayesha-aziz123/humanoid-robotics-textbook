@@ -7,6 +7,7 @@ dist/
 *.egg-info/
 *.log
 .env*
+.python-version
 
 # Universal
 .DS_Store

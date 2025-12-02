@@ -105,8 +105,61 @@ created_at: 2025-11-28
 5. Professional UI replacing default Docusaurus theme.
 6. Submission package: GitHub link + hosted link + demo video.
 
+
 ## 13. Workflow & Writing Rules
 - Author writes directly in `/book_source/docs/NN-slug.md` (Docusaurus docs folder).
 - Peer review via PR in `dev` branch; merge to `main` only after review.
 - Use consistent frontmatter for metadata.
+
+
+
+## RAG Chatbot Implementation
+
+### Requirements
+1. Build a RAG chatbot using:
+   - OpenAI Agents SDK for chat interface
+   - FastAPI for backend API
+   - Qdrant Cloud for vector storage
+   - Gemini Free API for embeddings
+
+2. Chatbot features:
+   - Answer questions about book content
+   - Support text selection queries (user selects text, asks questions about it)
+   - Embed into Docusaurus book
+
+
+## File Structure
+- `/book_source/` - Docusaurus book
+- `/api/` - FastAPI backend
+- `/scripts/` - Embedding generation scripts
+- `/.env` - Environment variables
+
+
+
+## Technical Stack
+- **Embeddings**: FastEmbed (fast, local, token-efficient)
+- **Vector DB**: Qdrant Cloud (Free Tier)
+- **LLM**: Google Gemini API (Free)
+- **Backend**: FastAPI
+- **Frontend**: React component embedded in Docusaurus
+- **Agent Framework**: OpenAI Agents SDK pattern
+
+
+
+## Key Constraints
+1. NO paid APIs (OpenAI, Anthropic) - Use Gemini only
+2. Use FastEmbed for embeddings (not OpenAI embeddings)
+3. All work via Claude CLI - autonomous setup
+4. Support text selection-based Q&A
+5. Deploy-ready for Vercel/GitHub Pages
+
+
+### Environment Variables Required
+- QDRANT_URL=https://0e797b5c-5f88-4622-947b-beaab05d3594.sa-east-1-0.aws.cloud.qdrant.io
+- QDRANT_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.Sh3bZvOSI6TgWhMB1BMBw6BUpqO6qkzCAkUtHYUlpG0
+- CLUSTER_ID=0e797b5c-5f88-4622-947b-beaab05d3594
+- GEMINI_API_KEY=AIzaSyCOY99nEkAkJOk5n5sWeV9WlXr8HXWtVFc
+
+
+
 

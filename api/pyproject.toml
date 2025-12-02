@@ -1,0 +1,21 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ayesha-aziz123",email = "moizs4644@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi (>=0.123.0,<0.124.0)",
+    "uvicorn (>=0.38.0,<0.39.0)",
+    "qdrant-client (>=1.16.1,<2.0.0)",
+    "google-generativeai (>=0.8.5,<0.9.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

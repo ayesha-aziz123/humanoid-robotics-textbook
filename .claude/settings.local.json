@@ -29,7 +29,17 @@
       "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-1-introduction-to-physical-ai\")",
       "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-2-ros2-fundamentals\")",
       "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-3-gazebo-simulation\")",
-      "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-4-nvidia-isaac-platform\")"
+      "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-4-nvidia-isaac-platform\")",
+      "Bash(sh:*)",
+      "SlashCommand(/sp.plan)",
+      "Bash(mv:*)",
+      "Bash($env:SPECIFY_FEATURE = \"001-rag-chatbot\")",
+      "SlashCommand(/sp.tasks)",
+      "Bash(poetry init:*)",
+      "Bash(npm init:*)",
+      "Bash(poetry add:*)",
+      "Bash(npm run docusaurus:*)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []
