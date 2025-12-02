@@ -7,7 +7,7 @@ const config: Config = {
   tagline: "Bridging digital AI with physical humanoid robots",
 
   // Set the production url of your site here
-  url: "humanoid-robotics-book.verce.app",
+  url: "humanoid-robotics-book.vercel.app",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
