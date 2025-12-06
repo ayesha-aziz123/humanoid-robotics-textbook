@@ -20,9 +20,8 @@ Thumbs.db
 # Node.js/JavaScript/TypeScript
 node_modules/
 dist/
+build/
 
 # Project specific additions
-.git/
-
 pytest.ini
 requirements.txt

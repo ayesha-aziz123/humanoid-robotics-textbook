@@ -20,6 +20,7 @@ param(
     [switch]$RequireTasks,
     [switch]$IncludeTasks,
     [switch]$PathsOnly,
+    [string]$Branch,
     [switch]$Help
 )
 
@@ -57,6 +58,9 @@ EXAMPLES:
 . "$PSScriptRoot/common.ps1"
 
 # Get feature paths and validate branch
+if (-not [string]::IsNullOrEmpty($Branch)) {
+    $env:SPECIFY_FEATURE = $Branch
+}
 $paths = Get-FeaturePathsEnv
 
 if (-not (Test-FeatureBranch -Branch $paths.CURRENT_BRANCH -HasGit:$paths.HAS_GIT)) { 

@@ -13,6 +13,7 @@ TECHNICAL STACK:
 - React chatbot component for Docusaurus
 - OpenAI Agents SDK patterns (design pattern only, not actual API)
 
+
 FEATURES:
 1. Scan all markdown files in book_source/docs/
 2. Generate embeddings using FastEmbed
@@ -111,6 +112,7 @@ An administrator or developer needs to set up the RAG system by scanning markdow
 - **FR-012**: The system MUST auto-detect and use existing `.env` file for configuration, including Qdrant and Gemini API credentials.
 - **FR-013**: The system MUST NOT use the OpenAI API.
 - **FR-014**: The system MUST handle Google Gemini API rate limits gracefully.
+
 
 ### Key Entities *(include if feature involves data)*
 

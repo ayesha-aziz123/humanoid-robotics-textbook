@@ -1,6 +1,4 @@
-def main():
-    print("Hello from physical-ai-humanoid-robotis!")
+from qdrant_client import QdrantClient
+client = QdrantClient(path="../qdrant-db")
 
-
-if __name__ == "__main__":
-    main()
+client.count(collection_name="physical_ai_book")

@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from qdrant_client import QdrantClient, models
 from fastembed import TextEmbedding
 
+
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -15,7 +17,7 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 COLLECTION_NAME = "physical_ai_book"
 VEC_DIM = 384
 
-def scan_markdown_files(docs_path="book_source/docs/"):
+def scan_markdown_files(docs_path="../book_source/docs/"):
     markdown_files = []
     logging.info(f"Scanning markdown files in {docs_path}...")
     try:

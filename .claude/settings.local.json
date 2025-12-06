@@ -41,7 +41,9 @@
       "Bash(npm run docusaurus:*)",
       "WebSearch",
       "Bash(git push:*)",
-      "Bash(gh pr create --title \"chore: Update project configuration and scripts for RAG Chatbot feature\" --body \"$(cat <<''EOF''\n## Summary\nThis PR updates the project configuration, replaces old bash scripts with new PowerShell scripts, and includes initial components for the RAG Chatbot feature. This refactors the project setup and prepares for the development of the chatbot.\n\n## Test plan\n- Verify that the Docusaurus build still functions correctly.\n- Review new script functionality (if applicable).\n- Basic setup and execution of new RAG Chatbot components (once implemented).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\" --head 001-rag-chatbot --base main)"
+      "Bash(gh pr create --title \"chore: Update project configuration and scripts for RAG Chatbot feature\" --body \"$(cat <<''EOF''\n## Summary\nThis PR updates the project configuration, replaces old bash scripts with new PowerShell scripts, and includes initial components for the RAG Chatbot feature. This refactors the project setup and prepares for the development of the chatbot.\n\n## Test plan\n- Verify that the Docusaurus build still functions correctly.\n- Review new script functionality (if applicable).\n- Basic setup and execution of new RAG Chatbot components (once implemented).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\" --head 001-rag-chatbot --base main)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell:*)"
     ],
     "deny": [],
     "ask": []

@@ -6,13 +6,19 @@ authors = [
     {name = "ayesha-aziz123",email = "moizs4644@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11, <3.13"
 dependencies = [
     "fastapi (>=0.123.0,<0.124.0)",
     "uvicorn (>=0.38.0,<0.39.0)",
-    "qdrant-client (>=1.16.1,<2.0.0)",
-    "google-generativeai (>=0.8.5,<0.9.0)",
-    "python-dotenv (>=1.2.1,<2.0.0)"
+    "python-dotenv (>=1.0.1)",
+    "openai-agents (>=0.1.0,<0.2.0)",
+    "fastembed (>=0.2.7,<0.3.0)",
+    "langchain-google-genai>=1.0.5",
+    "langchain>=0.2.1",
+    "langchain-community>=0.2.1",
+    "langchain-qdrant>=0.1.1",
+    "unstructured[md]>=0.14.5",
+    "qdrant-client (>=1.16.1,<2.0.0)"
 ]
 
 

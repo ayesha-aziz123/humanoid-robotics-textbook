@@ -155,10 +155,10 @@ created_at: 2025-11-28
 
 
 ### Environment Variables Required
-- QDRANT_URL=https://0e797b5c-5f88-4622-947b-beaab05d3594.sa-east-1-0.aws.cloud.qdrant.io
-- QDRANT_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.Sh3bZvOSI6TgWhMB1BMBw6BUpqO6qkzCAkUtHYUlpG0
-- CLUSTER_ID=0e797b5c-5f88-4622-947b-beaab05d3594
-- GEMINI_API_KEY=AIzaSyCOY99nEkAkJOk5n5sWeV9WlXr8HXWtVFc
+- QDRANT_URL=
+- QDRANT_API_KEY=
+- CLUSTER_ID=
+- GEMINI_API_KEY=
 
 
 
