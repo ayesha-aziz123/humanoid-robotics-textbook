@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "docusaurus depoy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -43,13 +43,5 @@
   },
   "engines": {
     "node": ">=20.0"
-  },
-  "description": "This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

@@ -7,7 +7,6 @@ dist/
 *.egg-info/
 *.log
 .env*
-.python-version
 
 # Universal
 .DS_Store
@@ -23,5 +22,7 @@ dist/
 build/
 
 # Project specific additions
+.git/
+
 pytest.ini
 requirements.txt

@@ -149,8 +149,7 @@ User Question → Agent Validation → [If relevant] → RAG Process → Answer
 - Response Types:
   - RELEVANT: Question is about Physical AI, ROS 2, Gazebo, Isaac Sim, humanoid robotics, sensors, URDF, SLAM, or related robotics topics
   - IRRELEVANT: Question is unrelated to textbook content (e.g., cooking, history, general knowledge)
-
-
+   
 **Rejection Message (when irrelevant):**
 "I can only answer questions related to the Physical AI & Humanoid Robotics textbook. Please ask questions about topics covered in the book such as ROS 2, Gazebo, Isaac Sim, sensors, or humanoid robotics."
 
