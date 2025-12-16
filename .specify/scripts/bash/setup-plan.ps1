@@ -1,95 +1,62 @@
 #!/usr/bin/env pwsh
-# setup-plan.ps1
+# Setup implementation plan for a feature
 
 [CmdletBinding()]
 param(
     [switch]$Json,
-    [string]$Branch
+    [switch]$Help
 )
 
 $ErrorActionPreference = 'Stop'
 
-# Resolve repository root
-function Find-RepositoryRoot {
-    param(
-        [string]$StartDir,
-        [string[]]$Markers = @('.git', '.specify')
-    )
-    $current = Resolve-Path $StartDir
-    while ($true) {
-        foreach ($marker in $Markers) {
-            if (Test-Path (Join-Path $current $marker)) {
-                return $current
-            }
-        }
-        $parent = Split-Path $current -Parent
-        if ($parent -eq $current) {
-            # Reached filesystem root without finding markers
-            return $null
-        }
-        $current = $parent
-    }
+# Show help if requested
+if ($Help) {
+    Write-Output "Usage: ./setup-plan.ps1 [-Json] [-Help]"
+    Write-Output "  -Json     Output results in JSON format"
+    Write-Output "  -Help     Show this help message"
+    exit 0
 }
 
-$fallbackRoot = (Find-RepositoryRoot -StartDir $PSScriptRoot)
-if (-not $fallbackRoot) {
-    Write-Error "Error: Could not determine repository root. Please run this script from within the repository."
-    exit 1
+# Load common functions
+. "$PSScriptRoot/common.ps1"
+
+# Get all paths and variables from common functions
+$paths = Get-FeaturePathsEnv
+
+# Check if we're on a proper feature branch (only for git repos)
+if (-not (Test-FeatureBranch -Branch $paths.CURRENT_BRANCH -HasGit $paths.HAS_GIT)) { 
+    exit 1 
 }
 
-try {
-    $repoRoot = git rev-parse --show-toplevel 2>$null
-    if ($LASTEXITCODE -eq 0) {
-        $hasGit = $true
-    } else {
-        throw "Git not available"
-    }
-} catch {
-    $repoRoot = $fallbackRoot
-    $hasGit = $false
-}
+# Ensure the feature directory exists
+New-Item -ItemType Directory -Path $paths.FEATURE_DIR -Force | Out-Null
 
-Set-Location $repoRoot
-
-$branchName = $null
-if ($PSBoundParameters.ContainsKey('Branch')) {
-    $branchName = $Branch
+# Copy plan template if it exists, otherwise note it or create empty file
+$template = Join-Path $paths.REPO_ROOT '.specify/templates/plan-template.md'
+if (Test-Path $template) { 
+    Copy-Item $template $paths.IMPL_PLAN -Force
+    Write-Output "Copied plan template to $($paths.IMPL_PLAN)"
 } else {
-    $branchName = $env:SPECIFY_FEATURE # Fallback to environment variable
+    Write-Warning "Plan template not found at $template"
+    # Create a basic plan file if template doesn't exist
+    New-Item -ItemType File -Path $paths.IMPL_PLAN -Force | Out-Null
 }
 
-if (-not $branchName) {
-    Write-Error "Error: SPECIFY_FEATURE environment variable not set. Please run create-new-feature.ps1 first."
-    exit 1
-}
-
-$specsDir = Join-Path $repoRoot 'specs'
-$featureSpec = Join-Path $specsDir $branchName 'spec.md'
-$implPlan = Join-Path $specsDir $branchName 'plan.md'
-
-# Copy plan template if it doesn't exist
-$planTemplate = Join-Path $repoRoot '.specify/templates/plan-template.md'
-if (-not (Test-Path $implPlan)) {
-    if (Test-Path $planTemplate) {
-        Copy-Item $planTemplate $implPlan -Force
-    } else {
-        New-Item -ItemType File -Path $implPlan | Out-Null
-    }
-}
-
+# Output results
 if ($Json) {
-    $obj = [PSCustomObject]@{
-        FEATURE_SPEC = $featureSpec
-        IMPL_PLAN = $implPlan
-        SPECS_DIR = $specsDir
-        BRANCH = $branchName
-        REPO_ROOT = $repoRoot
+    $result = [PSCustomObject]@{ 
+        FEATURE_SPEC = $paths.FEATURE_SPEC
+        IMPL_PLAN = $paths.IMPL_PLAN
+        SPECS_DIR = $paths.FEATURE_DIR
+        BRANCH = $paths.CURRENT_BRANCH
+        HAS_GIT = $paths.HAS_GIT
     }
-    $obj | ConvertTo-Json -Compress
+    $result | ConvertTo-Json -Compress
 } else {
-    Write-Output "FEATURE_SPEC: $featureSpec"
-    Write-Output "IMPL_PLAN: $implPlan"
-    Write-Output "SPECS_DIR: $specsDir"
-    Write-Output "BRANCH: $branchName"
-    Write-Output "REPO_ROOT: $repoRoot"
+    Write-Output "FEATURE_SPEC: $($paths.FEATURE_SPEC)"
+    Write-Output "IMPL_PLAN: $($paths.IMPL_PLAN)"
+    Write-Output "SPECS_DIR: $($paths.FEATURE_DIR)"
+    Write-Output "BRANCH: $($paths.CURRENT_BRANCH)"
+    Write-Output "HAS_GIT: $($paths.HAS_GIT)"
 }
+

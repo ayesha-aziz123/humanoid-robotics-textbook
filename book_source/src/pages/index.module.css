@@ -50,16 +50,20 @@
 }
 
 .heroBanner {
-  padding: 6rem 0;
+  padding: 4rem 2rem;
   text-align: left;
   position: relative;
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
   overflow: hidden;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
 }
+
+/* ============================================
+   DEFAULT: DESKTOP LAYOUT (1200px+)
+   ============================================ */
 
 .heroContent {
   display: grid;
@@ -68,14 +72,42 @@
   align-items: center;
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .heroText {
   max-width: 600px;
+  order: 1; /* Text on left for English */
 }
 
+.heroVisual {
+  order: 2; /* Robot on right for English */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================
+   URDU RTL - DESKTOP ONLY (1200px+)
+   ============================================ */
+
+html[lang='ur'] .heroText {
+  order: 2; /* Text on right for Urdu */
+  text-align: right;
+}
+
+html[lang='ur'] .heroVisual {
+  order: 1; /* Robot on left for Urdu */
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
 .heroTitle {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -91,26 +123,40 @@
 }
 
 .heroSubtitle {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   line-height: 1.6;
   font-weight: 300;
 }
 
+/* ============================================
+   STATS
+   ============================================ */
+
 .heroStats {
   display: flex;
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+html[lang='ur'] .heroStats {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
 .stat {
   text-align: center;
 }
 
+html[lang='ur'] .stat {
+  text-align: right;
+}
+
 .statNumber {
   display: block;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--accent-primary);
   line-height: 1;
@@ -123,10 +169,19 @@
   letter-spacing: 0.5px;
 }
 
+/* ============================================
+   BUTTONS
+   ============================================ */
+
 .heroButtons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+html[lang='ur'] .heroButtons {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
 .heroButtonPrimary {
@@ -138,6 +193,7 @@
   font-weight: 600;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .heroButtonPrimary:hover {
@@ -156,6 +212,7 @@
   font-weight: 600;
   border: 2px solid var(--accent-primary);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .heroButtonSecondary:hover {
@@ -165,11 +222,9 @@
   text-decoration: none;
 }
 
-.heroVisual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ============================================
+   ROBOT ANIMATION
+   ============================================ */
 
 .robotAnimation {
   position: relative;
@@ -253,6 +308,10 @@
   50% { transform: rotate(10deg); }
 }
 
+/* ============================================
+   BACKGROUND EFFECTS
+   ============================================ */
+
 .heroBackground {
   position: absolute;
   top: 0;
@@ -270,7 +329,6 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
   animation: float 6s ease-in-out infinite;
-  animation-delay: var(--delay);
 }
 
 .heroOrb:nth-child(1) {
@@ -307,32 +365,72 @@
   background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
 }
 
-[data-theme='light'] .quickStartSection {
-  background: rgba(124, 58, 237, 0.05);
-  border: 1px solid rgba(124, 58, 237, 0.2);
-}
+/* ============================================
+   RESPONSIVE: TABLET (768px - 1199px)
+   ============================================ */
 
-/* Responsive Design */
-@media (max-width: 996px) {
+@media screen and (max-width: 1199px) {
   .heroContent {
-    grid-template-columns: 1fr;
-    text-align: center;
     gap: 3rem;
   }
   
   .heroTitle {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
   
-  .heroStats {
-    justify-content: center;
+  .robotAnimation {
+    transform: scale(0.9);
   }
 }
 
-@media (max-width: 768px) {
+/* ============================================
+   RESPONSIVE: MOBILE & TABLET (< 996px)
+   SINGLE COLUMN CENTERED LAYOUT
+   ============================================ */
+
+@media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 4rem 0;
     min-height: auto;
+    padding: 3rem 1.5rem;
+  }
+  
+  /* FORCE SINGLE COLUMN */
+  .heroContent {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+    text-align: center !important;
+  }
+  
+  /* RESET ORDER - BOTH LANGUAGES SAME */
+  .heroText,
+  html[lang='ur'] .heroText {
+    order: 1 !important;
+    text-align: center !important;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .heroVisual,
+  html[lang='ur'] .heroVisual {
+    order: 2 !important;
+  }
+  
+  /* CENTER EVERYTHING */
+  .heroStats,
+  html[lang='ur'] .heroStats {
+    justify-content: center !important;
+    flex-direction: row !important;
+  }
+  
+  .stat,
+  html[lang='ur'] .stat {
+    text-align: center !important;
+  }
+  
+  .heroButtons,
+  html[lang='ur'] .heroButtons {
+    justify-content: center !important;
+    flex-direction: row !important;
   }
   
   .heroTitle {
@@ -342,28 +440,84 @@
   .heroSubtitle {
     font-size: 1.1rem;
   }
+}
+
+/* ============================================
+   RESPONSIVE: SMALL MOBILE (< 600px)
+   ============================================ */
+
+@media screen and (max-width: 600px) {
+  .heroBanner {
+    padding: 2rem 1rem;
+  }
   
-  .heroStats {
+  .heroContent {
     gap: 1.5rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  
+  /* STACK STATS VERTICALLY */
+  .heroStats,
+  html[lang='ur'] .heroStats {
+    flex-direction: column !important;
+    gap: 1rem;
+    align-items: center;
   }
   
   .statNumber {
     font-size: 1.5rem;
   }
   
-  .heroButtons {
-    flex-direction: column;
-    align-items: center;
+  /* STACK BUTTONS VERTICALLY */
+  .heroButtons,
+  html[lang='ur'] .heroButtons {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: stretch;
   }
   
   .heroButtonPrimary,
   .heroButtonSecondary {
     width: 100%;
     max-width: 300px;
+    margin: 0 auto;
     text-align: center;
   }
   
   .robotAnimation {
-    transform: scale(0.8);
+    transform: scale(0.7);
+  }
+}
+
+/* ============================================
+   VERY SMALL MOBILE (< 400px)
+   ============================================ */
+
+@media screen and (max-width: 400px) {
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 0.9rem;
+  }
+  
+  .statNumber {
+    font-size: 1.3rem;
+  }
+  
+  .statLabel {
+    font-size: 0.75rem;
+  }
+  
+  .robotAnimation {
+    transform: scale(0.6);
   }
 }

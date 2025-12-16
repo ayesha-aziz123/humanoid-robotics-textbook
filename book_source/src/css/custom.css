@@ -327,6 +327,199 @@
   padding: 1.5rem;
 }
 
+/* RTL Support for Urdu */
+[dir="rtl"] {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Ensure code blocks remain LTR within RTL content */
+[dir="rtl"] .code-block,
+[dir="rtl"] pre,
+[dir="rtl"] code,
+[dir="rtl"] .prism-code {
+  direction: ltr;
+  text-align: left;
+}
+
+/* RTL sidebar adjustments */
+[dir="rtl"] .sidebar {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .sidebar-toggle {
+  right: 0;
+  left: auto;
+}
+
+/* RTL navigation adjustments */
+[dir="rtl"] .navbar {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .navbar__item {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="rtl"] .navbar__toggle {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+/* RTL table adjustments */
+[dir="rtl"] table {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] th, [dir="rtl"] td {
+  text-align: right;
+}
+
+/* RTL list adjustments */
+[dir="rtl"] ul, [dir="rtl"] ol {
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+[dir="rtl"] .alert {
+  border-left: none;
+  border-right: 4px solid;
+}
+
+/* RTL card adjustments */
+[dir="rtl"] .card {
+  text-align: right;
+}
+
+/* RTL button adjustments */
+[dir="rtl"] .button {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="rtl"] .button:last-child {
+  margin-left: 0;
+}
+
+/* RTL footer adjustments */
+[dir="rtl"] .footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer__links {
+  text-align: right;
+}
+
+[dir="rtl"] .footer__item {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .footer__item:last-child {
+  margin-left: 0;
+}
+
+/* RTL doc adjustments */
+[dir="rtl"] .docSidebarContainer {
+  border-left: 1px solid var(--ifm-toc-border-color);
+  border-right: none;
+}
+
+[dir="rtl"] .docItemContainer {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .table-of-contents {
+  border-left: none;
+  border-right: 1px solid var(--ifm-toc-border-color);
+}
+
+[dir="rtl"] .table-of-contents__link {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+[dir="rtl"] .theme-edit-this-page {
+  direction: ltr;
+  text-align: left;
+}
+
+/* RTL admonitions */
+[dir="rtl"] .alert--secondary {
+  border-right-color: var(--ifm-alert-border-color);
+}
+
+/* RTL pagination */
+[dir="rtl"] .pagination-nav__link--next {
+  text-align: left;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .pagination-nav__link--prev {
+  text-align: right;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* RTL search */
+[dir="rtl"] .navbar__search {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .navbar__search-input {
+  padding-left: 2rem;
+  padding-right: 0.75rem;
+  background-position: calc(100% - 0.5rem) center;
+}
+
+[dir="rtl"] .search-icon {
+  left: 0.5rem;
+  right: auto;
+}
+
+/* RTL mobile menu */
+[dir="rtl"] .navbar-sidebar__item {
+  text-align: right;
+}
+
+[dir="rtl"] .menu__list-item {
+  margin-left: 0;
+  margin-right: calc(var(--ifm-menu-link-padding-horizontal) * -1);
+}
+
+[dir="rtl"] .menu__link {
+  margin-left: 0;
+  margin-right: var(--ifm-menu-link-padding-horizontal);
+}
+
+/* RTL custom elements from existing styles */
+[dir="rtl"] .learning-card {
+  text-align: right;
+}
+
+[dir="rtl"] .sensor-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .tech-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .process-step {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .exercise-card {
+  text-align: right;
+}
+
 /* Add more styles as needed... */
 
 

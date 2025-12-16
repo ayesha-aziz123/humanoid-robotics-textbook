@@ -1,0 +1,34 @@
+{
+  "title": {
+    "message": "فزیکل AI اور روبوٹکس",
+    "description": "The title in the navbar"
+  },
+  "item.label.Book": {
+    "message": "کتاب",
+    "description": "Navbar item with label Book"
+  },
+  "item.label.GitHub": {
+    "message": "گیتھب",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Documentation": {
+    "message": "دستاویزات",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.Tutorials": {
+    "message": "سیکھنے کے لیے",
+    "description": "Navbar item with label Tutorials"
+  },
+  "item.label.Blog": {
+    "message": " بلاگ",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.More": {
+    "message": "مزید",
+    "description": "Navbar item with label More"
+  },
+  "item.label.Support": {
+    "message": "سپورٹ",
+    "description": "Navbar item with label Support"
+  }
+}
