@@ -145,10 +145,10 @@ const config: Config = {
   // Set the production url of your site here
   url: 'https://ayesha-aziz123.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/humanoid-robotics-textbook/',  // ✅ IMPORTANT: Add your repo name
+  baseUrl: '/Humanoid-Robotics-textbook/',  // ✅ IMPORTANT: Add your repo name
   trailingSlash: false,
 
-  projectName: 'humanoid-robotics-textbook',
+  projectName: 'Humanoid-Robotics-textbook',
   organizationName: 'ayesha-aziz123',
 
   onBrokenLinks: 'throw',
@@ -167,7 +167,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           // routeBasePath: 'docs',  
-          editUrl: 'https://github.com/ayesha-aziz123/humanoid-robotics-textbook/tree/main/',
+          editUrl: 'https://github.com/ayesha-aziz123/Humanoid-Robotics-textbook/tree/main/',
         },
         blog: false,  // ✅ Disabled blog
         theme: {
@@ -196,7 +196,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/ayesha-aziz123/humanoid-robotics-textbook',
+          href: 'https://github.com/ayesha-aziz123/Humanoid-Robotics-textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -210,7 +210,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub Issues',
-              href: 'https://github.com/ayesha-aziz123/humanoid-robotics-textbook/issues',
+              href: 'https://github.com/ayesha-aziz123/Humanoid-Robotics-textbook/issues',
             },
           ],
         },
@@ -219,7 +219,7 @@ const config: Config = {
           items: [
             {
               label: 'Project GitHub',
-              href: 'https://github.com/ayesha-aziz123/humanoid-robotics-textbook',
+              href: 'https://github.com/ayesha-aziz123/Humanoid-Robotics-textbook',
             },
           ],
         },
