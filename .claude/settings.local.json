@@ -39,7 +39,8 @@
       "Bash(dir book_source/docs/module-2-ros2-fundamentals)",
       "Bash(dir book_source/docs/module-3-gazebo-simulation)",
       "Bash(dir book_source/docs/module-4-nvidia-isaac-platform)",
-      "Bash(dir \"C:\\Users\\HP\\Desktop\\Spec-Driven-Hackathons\\Hackathon-I\\physical-ai-humanoid-robotis\\book_source\\i18n\\ur\\docusaurus-plugin-content-docs\\current\" /s)"
+      "Bash(dir \"C:\\Users\\HP\\Desktop\\Spec-Driven-Hackathons\\Hackathon-I\\physical-ai-humanoid-robotis\\book_source\\i18n\\ur\\docusaurus-plugin-content-docs\\current\" /s)",
+      "Bash(git push -u origin 001-urdu-translation)"
     ],
     "deny": [],
     "ask": []
