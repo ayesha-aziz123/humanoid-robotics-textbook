@@ -29,7 +29,18 @@
       "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-1-introduction-to-physical-ai\")",
       "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-2-ros2-fundamentals\")",
       "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-3-gazebo-simulation\")",
-      "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-4-nvidia-isaac-platform\")"
+      "Bash(__NEW_LINE__ mkdir -p \"C:\\Users\\HP\\Desktop\\Hackathon\\physical-ai-humanoid-robotis\\book_source\\docs\\module-4-nvidia-isaac-platform\")",
+      "Bash(ls -1d specs/*-urdu-translation)",
+      "Bash(echo $env:SPECIFY_FEATURE)",
+      "Bash($env:SPECIFY_FEATURE = \"001-urdu-translation\")",
+      "Bash(dir book_source /s)",
+      "Bash(dir book_source/docs /s)",
+      "Bash(dir book_source/docs/module-1-introduction-to-physical-ai)",
+      "Bash(dir book_source/docs/module-2-ros2-fundamentals)",
+      "Bash(dir book_source/docs/module-3-gazebo-simulation)",
+      "Bash(dir book_source/docs/module-4-nvidia-isaac-platform)",
+      "Bash(dir \"C:\\Users\\HP\\Desktop\\Spec-Driven-Hackathons\\Hackathon-I\\physical-ai-humanoid-robotis\\book_source\\i18n\\ur\\docusaurus-plugin-content-docs\\current\" /s)",
+      "Bash(git push -u origin 001-urdu-translation)"
     ],
     "deny": [],
     "ask": []

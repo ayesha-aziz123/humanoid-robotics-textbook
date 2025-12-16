@@ -169,6 +169,10 @@ app.add_middleware(
 class QueryRequest(BaseModel):
     query: str= None
 
+class QuerySelectionRequest(BaseModel):
+    selected_text: str
+    query: Optional[str] = None
+
 # --- Helper Function for RAG ---
 def perform_rag(query: str, context_prefix: str = "") -> Dict[str, Any]:
     """
@@ -284,36 +288,27 @@ async def query_chatbot(request: QueryRequest):
         return format_success_response(answer, source_chunks, validation_result)
 
 
-
 @app.post("/query-selection")
-async def query_chatbot_selection(request):
+async def query_chatbot_selection(request: QuerySelectionRequest):  # <-- Ab model use karo
     # Effective query for validation: use query if present, else selected_text
     effective_query = request.query if request.query else request.selected_text
     validation_result = await validate_question(effective_query)
 
     if validation_result.status == ValidationStatus.IRRELEVANT:
-        # Return rejection message if effective query is irrelevant
         return format_rejection_response(validation_result)
     else:
-        # Proceed with RAG, using query or None
-        rag_result = perform_rag(request.query, context_prefix=request.selected_text)
-        # Extract answer and sources
+        rag_result = perform_rag(request.query or "", context_prefix=request.selected_text)
         answer = rag_result.get("answer", "")
         sources = rag_result.get("sources", [])
         
-        # MODIFY THIS: Add file_path to source_chunks
         source_chunks = [
             {
                 "content": s.get("file", ""), 
                 "source": s.get("file", ""), 
-                "file_path": s.get("file_path", ""),  # ADD THIS
+                "file_path": s.get("file_path", ""),
                 "page": s.get("score", 0.0)
             } 
             for s in sources
         ]
         
         return format_success_response(answer, source_chunks, validation_result)
-
-
-
-
